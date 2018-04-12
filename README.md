@@ -28,17 +28,17 @@ git リポジトリは任意のディレクトリに展開してください
 (例: ホームディレクト配下に github 用のディレクトリ作成)
 $ mkdir ~/github
 
-(github ディレクトリ配下に example リポジトリ展開)
+(github ディレクトリ配下に getcoin リポジトリ展開)
 $ cd ~/github
-$ git clone git@github.com:ykHakata/example.git
+$ git clone git@github.com:ykHakata/getcoin.git
 
 (Perl バージョンを確認)
-$ cd ~/github/example/
+$ cd ~/github/getcoin/
 $ cat .perl-version
 5.**.*
 
 (cpanfile に必要なモジュール情報が記載)
-$ cd ~/github/example/
+$ cd ~/github/getcoin/
 $ cat cpanfile
 requires 'Mojolicious' ...
 
@@ -58,10 +58,10 @@ $ carton install
 事前に SETUP を参考に準備をすませてください
 
 ```
-$ cd ~/github/example/
+$ cd ~/github/getcoin/
 
 (WEBフレームワークを起動 development モード)
-$ carton exec -- morbo script/example
+$ carton exec -- morbo script/getcoin
 
 (終了時は control + c で終了)
 ```
@@ -75,16 +75,16 @@ $ carton exec -- morbo script/example
 ```
 (通常のテストコード実行)
 (自動でモードが testing になるように設定している)
-$ carton exec -- script/example test
+$ carton exec -- script/getcoin test
 
 (実行 mode を明示的に切り替え)
-$ carton exec -- script/example test --mode testing
+$ carton exec -- script/getcoin test --mode testing
 
 (テスト結果を詳細に出力)
-$ carton exec -- script/example test -v --mode testing
+$ carton exec -- script/getcoin test -v --mode testing
 
 (テスト結果を詳細かつ個別に出力)
-$ carton exec -- script/example test -v --mode testing t/example.t
+$ carton exec -- script/getcoin test -v --mode testing t/getcoin.t
 ```
 
 ## WORK
@@ -114,17 +114,46 @@ $ ssh name@example.com
 $ ssh name@***.**.***.**
 
 (アプリケーションユーザーに)
-$ sudo su - example
+$ sudo su - getcoin
 
 (移動後 github より pull 更新)
-$ cd ~/example/
+$ cd ~/getcoin/
 $ git pull origin master
 
 (app サーバーを再起動)
-$ carton exec -- hypnotoad script/example
+$ carton exec -- hypnotoad script/getcoin
 ```
 
 # TODO
+
+- 開発用の暫定確認用サーバーの準備
+- 認証機能
+    - 基本ログイン
+    - 新規作成時紹介用トークンの受付
+- 顧客管理機能
+    - 基本管理(新規、編集、削除)
+- ルーレット機能
+    - ランダムな数字の出力機能
+    - 数字の出力コントロール機能
+    - 一定時間経過するとルーレットができる機能
+- 所有コイン
+    - ルーレットの出力に応じてコインを増やす、減らす
+    - コインの払い出し
+- 紹介用トークン発行機能
+- メール送信機能
+    - 新規登録時
+    - パスワード変更時
+    - コインの払い出し時
+    - 登録解約時
+- 管理画面機能
+    - 管理者としての認証機能
+    - 顧客管理機能
+    - ルーレットの出力コントロール
+    - 所有コインの管理
+- 認証周りのつくりは顧客と管理者とわかれるので検討が必要
+- https へ変更
+- G スイート用意、gmail ドメインを貼り付け
+- 公開用サーバーの準備
 
 # SEE ALSO
 

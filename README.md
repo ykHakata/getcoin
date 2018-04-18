@@ -6,7 +6,7 @@ getcoin - ビットコイン獲得ゲーム
 
 ## URL
 
-- <http://example> - example
+- <http://getcoin.becom.work> - 開発用サーバー
 
 ## SETUP
 
@@ -68,6 +68,10 @@ $ carton exec -- morbo script/getcoin
 
 コマンドラインで morbo サーバー実行後、web ブラウザ `http://localhost:3000/` で確認
 
+### DEVELOPMENT
+
+web サーバー nginx 通常はつねに稼働中、サーバーの起動は root 権限
+
 ## TEST
 
 必ずテストコードが通過するように実装してください。
@@ -108,10 +112,10 @@ $ git push origin master
 
 (サーバーへ接続)
 (ローカル環境から各自のアカウントでログイン)
-$ ssh name@example.com
+$ ssh kusakabe@becom.work
 
 (もしくは)
-$ ssh name@***.**.***.**
+$ ssh kusakabe@153.126.137.205
 
 (アプリケーションユーザーに)
 $ sudo su - getcoin
@@ -126,7 +130,7 @@ $ carton exec -- hypnotoad script/getcoin
 
 # TODO
 
-- 開発用の暫定確認用サーバーの準備
+- ~~開発用の暫定確認用サーバーの準備~~
 - 認証機能
     - 基本ログイン
     - 新規作成時紹介用トークンの受付
